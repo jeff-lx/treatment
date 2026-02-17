@@ -103,6 +103,8 @@ export function EndSummary({
 
   // Feedback message based on performance
   const feedbackMessage = useMemo(() => {
+	sendNewScoreEvent(true);
+	sendModuleScoreEvent("Treatment", "Web Treatment", 200, 200);
     if (starRating === 3) {
       return "Excellent! You achieved a physiologic maintenance dose safely and efficiently."
     }
@@ -125,7 +127,25 @@ export function EndSummary({
         console.log("Not running inside Unity:", message)
       }
 	}
+
+  const sendModuleScoreEvent = (module, title, score, maxScore) => {
+    const scorePercent = maxScore > 0 ? score / maxScore : 0;
 	
+    sendToUnity("LXModuleShared.SharedStarsModel+ModuleScore", {
+      name: module,
+      title: title,
+      score: score,
+      maxScore: maxScore,
+      scorePercent: scorePercent
+    });
+  }
+
+  const sendNewScoreEvent = (showPopup) => {
+    sendToUnity("LXModuleShared.SharedStarsModel+NewScoreEventNode", {
+      showPopup: !!showPopup
+    });
+  }
+
   const handleContinue = () => {
     sendToUnity("LXModule.ModuleFrontendModel+CompleteModule")
   }
