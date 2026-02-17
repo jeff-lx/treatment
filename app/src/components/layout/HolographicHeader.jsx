@@ -397,10 +397,10 @@ export function HolographicHeader({
                   className="text-base font-semibold text-white"
                   style={{ fontFamily: "'Rift', 'Arial Black', 'Impact', sans-serif" }}
                 >
-                  {patient?.name || 'Julia'}
+                  {window.unityData?.[0]?.patientName || 'Julia'}
                 </div>
                 <div className="text-xs text-white/60">
-                  {patient?.age || 21} {patient?.gender || 'F'}
+                  {window.unityData?.[0]?.patientAge || 21} {window.unityData?.[0]?.patientGender || 'F'}
                 </div>
               </div>
             </button>
