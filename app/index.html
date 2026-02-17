@@ -35,8 +35,8 @@
 
         function addMessageListener() {
             window.vuplex.addEventListener('message', event => {
-            	console.log('JSON received: ' + event.data);
-				window.unityData = JSON.parse(event.value);
+                console.log('JSON received: ' + event.data);
+                window.unityData = JSON.parse(event.data).sheets;
         	});
         }
     </script>
