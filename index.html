@@ -19,10 +19,24 @@
         font-family: 'JetBrains Mono', monospace;
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-BJxeRLl8.js"></script>
+    <script type="module" crossorigin src="./assets/index-ljoqWtYb.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CJl6S83y.css">
   </head>
   <body class="dark bg-slate-900">
     <div id="root"></div>
   </body>
+  <script>
+	window.unityData = {};
+	window.addEventListener('vuplexmessage', event => {
+	  try {
+		const data = JSON.parse(event.value);
+		console.log('JSON received from Unity:', data);
+  
+		// Store it globally
+		window.unityData = data;
+	  } catch (err) {
+		console.error('Failed to parse Unity message:', event.value, err);
+	  }
+	});
+  </script>
 </html>
