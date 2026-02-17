@@ -24,4 +24,18 @@
     <div id="root"></div>
     <script type="module" src="./src/main.jsx"></script>
   </body>
+  <script>
+	window.unityData = {};
+	window.addEventListener('vuplexmessage', event => {
+	  try {
+		const data = JSON.parse(event.value);
+		console.log('JSON received from Unity:', data);
+  
+		// Store it globally
+		window.unityData = data;
+	  } catch (err) {
+		console.error('Failed to parse Unity message:', event.value, err);
+	  }
+	});
+  </script>
 </html>

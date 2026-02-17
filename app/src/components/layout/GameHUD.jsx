@@ -71,10 +71,10 @@ export function GameHUD({
             </div>
             <div className="text-left">
               <div className="text-sm font-semibold text-white">
-                {patient?.name || 'Julia'}
+                {window.unityData?.[0]?.patientName || 'Julia'}
               </div>
               <div className="text-xs text-slate-400">
-                {patient?.age || 21} {patient?.gender || 'F'}
+                {Number(window.unityData?.[0]?.patientAge) || 21} {window.unityData?.[0]?.patientGender || 'F'}
               </div>
             </div>
           </button>
