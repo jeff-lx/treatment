@@ -279,7 +279,7 @@ export function HolographicHeader({
           <img 
             alt="" 
             className="block w-full h-full object-contain"
-            src="/header-assets/CAH_header-bg-asset.png"
+            src="./header-assets/CAH_header-bg-asset.png"
           />
         </motion.div>
 
@@ -302,7 +302,7 @@ export function HolographicHeader({
           <img 
             alt="" 
             className="block w-full h-full object-contain"
-            src="/header-assets/CAH_header-components-asset.png"
+            src="./header-assets/CAH_header-components-asset.png"
           />
         </motion.div>
 
@@ -326,7 +326,7 @@ export function HolographicHeader({
           <img 
             alt="" 
             className="block w-full h-full max-w-none object-contain"
-            src="/header-assets/CAH_header-left-asset.png"
+            src="./header-assets/CAH_header-left-asset.png"
           />
         </motion.div>
 
@@ -384,7 +384,7 @@ export function HolographicHeader({
                 }}
               >
                 <img 
-                  src="/julia.png" 
+                  src="./julia.png" 
                   alt={patient?.name || 'Julia'}
                   className="w-full h-auto object-cover object-top"
                   style={{

@@ -261,7 +261,7 @@ export function DecisionCard({
       {cardBgSettings.enabled && (
         <img 
           alt="Background" 
-          src="/CAH_modal.png"
+          src="./CAH_modal.png"
           className="absolute inset-0 w-full h-full"
           style={{ 
             objectFit: 'cover',

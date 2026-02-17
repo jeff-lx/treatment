@@ -8,7 +8,7 @@ export const gameConfig = {
     age: 21,
     gender: 'F',
     avatar: '👩',
-    avatarUrl: '/julia.png'
+    avatarUrl: './julia.png'
   }
 }
 

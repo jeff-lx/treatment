@@ -8,7 +8,7 @@ import { useTheme } from '../../context/ThemeContext'
 
 // Default background image settings - HARDCODED DEFAULTS (source of truth)
 const defaultBgImageSettings = {
-  imagePath: '/LUX_Game-Sort_Version2.png',
+  imagePath: './LUX_Game-Sort_Version2.png',
   offsetX: -10,
   offsetY: -54,
   scale: 1.45,
@@ -186,12 +186,12 @@ export function BackgroundGrid() {
               <label className="flex justify-between items-center gap-1 mb-2">
                 <span className="text-slate-300 text-[10px]">Image</span>
                 <select
-                  value={bgImageSettings.imagePath || '/LUX_Game-Sort_Version2.png'}
+                  value={bgImageSettings.imagePath || './LUX_Game-Sort_Version2.png'}
                   onChange={(e) => updateBgImage('imagePath', e.target.value)}
                   className="bg-slate-800 border border-slate-600 rounded px-2 py-1 text-[9px] text-white flex-1"
                 >
-                  <option value="/LUX_Game-Sort_Version2.png">Default</option>
-                  <option value="/header-assets/CAH_background.png">CAH Background</option>
+                  <option value="./LUX_Game-Sort_Version2.png">Default</option>
+                  <option value="./header-assets/CAH_background.png">CAH Background</option>
                 </select>
               </label>
               
@@ -385,7 +385,7 @@ const defaultFanPanelsSettings = {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(${bgImageSettings.imagePath || '/LUX_Game-Sort_Version2.png'})`,
+            backgroundImage: `url(${bgImageSettings.imagePath || './LUX_Game-Sort_Version2.png'})`,
             backgroundSize: `${bgImageSettings.scale * 100}%`,
             backgroundPosition: `calc(50% + ${bgImageSettings.offsetX}px) calc(50% + ${bgImageSettings.offsetY}px)`,
             backgroundRepeat: 'no-repeat',

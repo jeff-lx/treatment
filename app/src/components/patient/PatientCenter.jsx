@@ -276,7 +276,7 @@ export function PatientCenter({ patient, isActive, dropEffect, onDrop, onEntranc
           {/* Video 1 - Intro */}
           <video
             ref={video1Ref}
-            src="/julia3.webm"
+            src="./julia3.webm"
             autoPlay
             muted
             playsInline
@@ -296,7 +296,7 @@ export function PatientCenter({ patient, isActive, dropEffect, onDrop, onEntranc
           {/* Video 2 - Loop */}
           <video
             ref={video2Ref}
-            src="/julia3.webm"
+            src="./julia3.webm"
             autoPlay
             loop
             muted

@@ -61,7 +61,7 @@ export function GameHUD({
               }}
             >
               <img 
-                src="/julia.png" 
+                src="./julia.png" 
                 alt={patient?.name || 'Julia'}
                 className="w-full h-auto object-cover object-top"
                 style={{

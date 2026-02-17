@@ -759,7 +759,7 @@ const defaultBlurSettings = {
             >
               <img 
                 alt="Background" 
-                src="/CAH_modal.png"
+                src="./CAH_modal.png"
                 className="absolute inset-0 w-full h-full"
                 style={{ 
                   objectFit: 'cover',
@@ -954,7 +954,7 @@ const defaultBlurSettings = {
               >
                 {/* Button background image */}
                 <motion.img 
-                  src="/CAH-button.png" 
+                  src="./CAH-button.png" 
                   alt=""
                   className="absolute inset-0 w-full h-full object-contain rounded-b-[24px]"
                   style={{
