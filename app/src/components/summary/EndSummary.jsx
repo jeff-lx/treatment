@@ -101,19 +101,6 @@ export function EndSummary({
     }
   }
 
-  // Feedback message based on performance
-  const feedbackMessage = useMemo(() => {
-	sendNewScoreEvent(true);
-	sendModuleScoreEvent("Treatment", "Web Treatment", 200, 200);
-    if (starRating === 3) {
-      return "Excellent! You achieved a physiologic maintenance dose safely and efficiently."
-    }
-    if (starRating === 2) {
-      return "Good job! You reached the target dosage, but there may be room for optimization."
-    }
-    return "You completed the treatment. Consider reviewing decision timing for future cases."
-  }, [starRating])
-
   // Send message to Unity via Vuplex
   const sendToUnity = (type, payload = {}) => {
     const message = {
@@ -149,6 +136,19 @@ export function EndSummary({
   const handleContinue = () => {
     sendToUnity("LXModule.ModuleFrontendModel+CompleteModule")
   }
+
+  // Feedback message based on performance
+  const feedbackMessage = useMemo(() => {
+	sendNewScoreEvent(true);
+	sendModuleScoreEvent("Treatment", "Web Treatment", 200, 200);
+    if (starRating === 3) {
+      return "Excellent! You achieved a physiologic maintenance dose safely and efficiently."
+    }
+    if (starRating === 2) {
+      return "Good job! You reached the target dosage, but there may be room for optimization."
+    }
+    return "You completed the treatment. Consider reviewing decision timing for future cases."
+  }, [starRating])
 
   return (
     <div className="h-full w-full max-w-[400px] mx-auto flex flex-col bg-slate-900 overflow-auto">
