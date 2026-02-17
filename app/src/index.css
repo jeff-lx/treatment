@@ -8,7 +8,7 @@
 /* RIFT Font - Bold Italic */
 @font-face {
   font-family: 'Rift';
-  src: url('./Rift-Bold-Italic.otf') format('opentype');
+  src: url('/Rift-Bold-Italic.otf') format('opentype');
   font-weight: 700;
   font-style: italic;
   font-display: swap;
