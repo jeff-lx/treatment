@@ -4,9 +4,9 @@ export const gameConfig = {
   targetDosage: 25,
   maxDosage: 60,
   patient: {
-    name: 'Julia',
-    age: 21,
-    gender: 'F',
+    name: window.unityData?.[0]?.patientName,
+    age: Number(window.unityData?.[0]?.patientAge),
+    gender: window.unityData?.[0]?.patientGender,
     avatar: '👩',
     avatarUrl: './julia.png'
   }
