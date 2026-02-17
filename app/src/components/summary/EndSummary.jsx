@@ -127,12 +127,7 @@ export function EndSummary({
 	}
 	
   const handleContinue = () => {
-    sendToUnity("ContinuePressed", {
-    patientName: patient?.name,
-    finalDosage,
-    totalWeeks,
-    stars: starRating
-    })
+    sendToUnity("LXModule.ModuleFrontendModel+CompleteModule")
   }
 
   return (
