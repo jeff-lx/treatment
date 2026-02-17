@@ -112,6 +112,29 @@ export function EndSummary({
     return "You completed the treatment. Consider reviewing decision timing for future cases."
   }, [starRating])
 
+  // Send message to Unity via Vuplex
+  const sendToUnity = (type, payload = {}) => {
+    const message = {
+      type,
+      data: payload
+    }
+	
+    if (window.vuplex && window.vuplex.postMessage) {
+        window.vuplex.postMessage(JSON.stringify(message))
+      } else {
+        console.log("Not running inside Unity:", message)
+      }
+	}
+	
+  const handleContinue = () => {
+    sendToUnity("ContinuePressed", {
+    patientName: patient?.name,
+    finalDosage,
+    totalWeeks,
+    stars: starRating
+    })
+  }
+
   return (
     <div className="h-full w-full max-w-[400px] mx-auto flex flex-col bg-slate-900 overflow-auto">
       <div className="p-6 space-y-6">
@@ -208,38 +231,51 @@ export function EndSummary({
           {feedbackMessage}
         </motion.p>
 
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className="space-y-2"
-        >
-          <Button
-            color="primary"
-            variant="solid"
-            onPress={onReplay}
-            className="w-full font-medium"
-          >
-            🔄 Replay
-          </Button>
-          <div className="grid grid-cols-2 gap-2">
-            <Button
-              variant="flat"
-              className="bg-slate-800 text-slate-300"
-              onPress={onCaseSummary}
-            >
-              📋 Case Summary
-            </Button>
-            <Button
-              variant="flat"
-              className="bg-slate-800 text-slate-300"
-              onPress={onTimeline}
-            >
-              📊 Timeline
-            </Button>
-          </div>
-        </motion.div>
+		{/* Buttons */}
+		<motion.div
+		initial={{ opacity: 0, y: 20 }}
+		animate={{ opacity: 1, y: 0 }}
+		transition={{ delay: 0.9 }}
+		className="space-y-2"
+		>
+		<Button
+			color="primary"
+			variant="solid"
+			onPress={onReplay}
+			className="w-full font-medium"
+		>
+			🔄 Replay
+		</Button>
+
+		<div className="grid grid-cols-2 gap-2">
+			<Button
+			variant="flat"
+			className="bg-slate-800 text-slate-300"
+			onPress={onCaseSummary}
+			>
+			📋 Case Summary
+			</Button>
+
+			<Button
+			variant="flat"
+			className="bg-slate-800 text-slate-300"
+			onPress={onTimeline}
+			>
+			📊 Timeline
+			</Button>
+		</div>
+
+		{/* NEW Continue Button */}
+		<Button
+			color="success"
+			variant="solid"
+			onPress={handleContinue}
+			className="w-full font-semibold"
+		>
+			▶ Continue
+		</Button>
+		</motion.div>
+
       </div>
     </div>
   )
