@@ -118,7 +118,7 @@ export function EndSummary({
   const sendModuleScoreEvent = (module, title, score, maxScore) => {
     const scorePercent = maxScore > 0 ? score / maxScore : 0;
 	
-    sendToUnity("LXModuleShared.SharedStarsModel+ModuleScore", {
+    sendToUnity("LXModuleShared.SharedStarsModel+ModuleScore, LevelExMedical.ModuleShared", {
       name: module,
       title: title,
       score: score,
@@ -128,13 +128,13 @@ export function EndSummary({
   }
 
   const sendNewScoreEvent = (showPopup) => {
-    sendToUnity("LXModuleShared.SharedStarsModel+NewScoreEventNode", {
+    sendToUnity("LXModuleShared.SharedStarsModel+NewScoreEventNode, LevelExMedical.ModuleShared", {
       showPopup: !!showPopup
     });
   }
 
   const handleContinue = () => {
-    sendToUnity("LXModule.ModuleFrontendModel+CompleteModule")
+    sendToUnity("LXModule.ModuleFrontendModel+CompleteModule, LevelExMedical.Module")
   }
 
   // Feedback message based on performance
