@@ -23,20 +23,20 @@
     <link rel="stylesheet" crossorigin href="./assets/index-CJl6S83y.css">
   </head>
   <body class="dark bg-slate-900">
-    <div id="root"></div>
+    <div id="root"></div>
+    <script>
+        console.log('Script executed!');
+        window.unityData = {};
+        window.addEventListener('vuplexmessage', event => {
+            try {
+                const data = JSON.parse(event.value);
+                console.log('JSON received from Unity:', data);
+                // Store it globally
+                window.unityData = data;
+            } catch (err) {
+                console.error('Failed to parse Unity message:', event.value, err);
+            }
+        });
+    </script>
   </body>
-  <script>
-	window.unityData = {};
-	window.addEventListener('vuplexmessage', event => {
-	  try {
-		const data = JSON.parse(event.value);
-		console.log('JSON received from Unity:', data);
-  
-		// Store it globally
-		window.unityData = data;
-	  } catch (err) {
-		console.error('Failed to parse Unity message:', event.value, err);
-	  }
-	});
-  </script>
 </html>
